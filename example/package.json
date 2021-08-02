@@ -1,0 +1,15 @@
+{
+  "name": "feature-flip-example",
+  "version": "1.0.0",
+  "description": "Example project with FeatureFlip API library",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Matt Elliott <hello.matt.elliott@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "feature-flip-js": "file:.."
+  }
+}
