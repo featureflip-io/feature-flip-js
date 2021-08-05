@@ -1,11 +1,16 @@
-import { Feature, FeatureIndex, FeatureMap, Features } from './features/types';
+import {
+  FeatureFlag,
+  FeatureIndex,
+  FeatureMap,
+  Features,
+} from './features/types';
 
 type Config = {
   features: Features;
 };
 
 // a disabled Feature with the name supplied
-const nullFeature = (name: string, enabled = false): Feature => ({
+const nullFeature = (name: string, enabled = false): FeatureFlag => ({
   id: name,
   slug: name,
   name,
@@ -19,7 +24,7 @@ const reduceFeaturesByProp = <T>(
   keyProp: string,
   valueProp?: string
 ): T =>
-  features.reduce((acc: T, current: Feature) => {
+  features.reduce((acc: T, current: FeatureFlag) => {
     acc[current[keyProp]] = valueProp ? current[valueProp] : current;
     return acc;
   }, {} as T);
@@ -51,11 +56,11 @@ export abstract class Base {
     propName: string,
     value: string,
     enabled = false
-  ): Feature {
+  ): FeatureFlag {
     const featureNameOrNullFeature = (name: string) =>
       name ? this.featuresByName[name] : nullFeature(value, enabled);
 
-    const featureOrNullFeature = (feature: Feature) =>
+    const featureOrNullFeature = (feature: FeatureFlag) =>
       feature ? feature : nullFeature(value, enabled);
 
     switch (propName) {

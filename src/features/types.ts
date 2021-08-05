@@ -1,4 +1,4 @@
-export interface Feature {
+export interface FeatureFlag {
   id: string;
   slug: string;
   name: string;
@@ -6,8 +6,8 @@ export interface Feature {
   enabled: boolean;
 }
 
-export type Features = Feature[];
+export type Features = FeatureFlag[];
 
-export type FeatureMap = Record<string, Feature>;
+export type FeatureMap = Record<string, FeatureFlag>;
 
 export type FeatureIndex = Record<string, string>;

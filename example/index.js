@@ -13,17 +13,16 @@ const localFeatureList = [
 const FeatureFlipClient = new FeatureFlip({ features: localFeatureList });
 
 const allFeatures = FeatureFlipClient.getFeaturesMap();
+console.log('allFeatures', allFeatures);
 
 const featureBySlug = FeatureFlipClient.getFeatureBySlug('feature-flip-1');
+console.log('featureBySlug', featureBySlug);
 
 const featureByInvalidSlug = FeatureFlipClient.getFeatureBySlug('invalid-slug');
+console.log('featureByInvalidSlug', featureByInvalidSlug);
 
 const featureById = FeatureFlipClient.getFeatureById('1');
+console.log('featureById', featureById);
 
 const featureByInvalidId = FeatureFlipClient.getFeatureById('invalid-id');
-
-console.log('allFeatures', allFeatures);
-console.log('featureBySlug', featureBySlug);
-console.log('featureByInvalidSlug', featureByInvalidSlug);
-console.log('featureById', featureById);
 console.log('featureByInvalidId', featureByInvalidId);

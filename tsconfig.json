@@ -1,9 +1,7 @@
 {
-    "include": [
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "**/*.test.ts"
-    ]
+  "compilerOptions": {
+    "target": "es5"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
 }

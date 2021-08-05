@@ -1,22 +1,35 @@
 {
-  "name": "feature-flip-js",
-  "version": "0.1.2",
+  "name": "@featureflip-io/feature-flip-js",
+  "version": "0.1.0",
   "description": "An universal client for the feature-flip API written in Typescript",
   "main": "dist/index.js",
   "module": "dist/index.m.js",
   "umd:main": "dist/index.umd.js",
   "source": "src/index.ts",
-  "repository": "github:mcelliott/feature-flip-js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/featureflip-io/feature-flip-js.git"
+  },
   "scripts": {
     "build": "rm -rf dist && microbundle  --tsconfig tsconfig.json",
     "dev": "microbundle watch --tsconfig tsconfig.json",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.3",
-    "jest": "^25.5.4",
+    "@babel/preset-env": "^7.14.9",
+    "@babel/preset-typescript": "^7.14.5",
+    "@types/jest": "^26.0.24",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "babel-jest": "^27.0.6",
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6",
     "microbundle": "^0.13.0",
-    "nock": "^12.0.3"
+    "nock": "^12.0.3",
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.3.5"
   },
   "keywords": [
     "feature-flip",
@@ -35,5 +48,12 @@
   "dependencies": {
     "isomorphic-unfetch": "^3.1.0",
     "querystringify": "^2.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/featureflip-io/feature-flip-js/issues"
+  },
+  "homepage": "https://github.com/featureflip-io/feature-flip-js#readme",
+  "directories": {
+    "example": "example"
   }
 }
