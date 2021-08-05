@@ -1,5 +1,5 @@
 <h1 align="center">
-@feature-flip/feature-flip-js
+@featureflip-io/feature-flip-js
 </h1>
 
 ## ✨ Features:
@@ -10,19 +10,31 @@
 ## 🔧 Installation
 
 ```bash
-npm i @feature-flip/feature-flip-js
+npm i @featureflip-io/feature-flip-js
+```
+
+## </> FeatureFlag
+
+```js
+{
+  id: string; // 123
+  name: string; // my-feature
+  slug: string; // my-feature-123
+  description: string; // My new feature
+  enabled: boolean; // on/off switch
+}
 ```
 
 ## 🌐 Basic usage
 
 ```js
-import FeatureFlipJS, { FeatureFlag } from '@feature-flip/feature-flip-js';
+import FeatureFlipJS, { FeatureFlag } from '@featureflip-io/feature-flip-js';
 
 const features: FeatureFlag[] = [
   {
     id: '1234',
-    slug: 'my-feature-1234',
     name: 'my-feature',
+    slug: 'my-feature-1234',
     enabled: !isProduction,
     description: 'My feature',
   },
