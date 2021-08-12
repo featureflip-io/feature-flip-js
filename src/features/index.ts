@@ -3,11 +3,11 @@ import { FeatureFlag, FeatureMap } from './types';
 
 export class Features extends Base {
   getFeaturesMap(): FeatureMap {
-    return this.getBaseFeaturesByNameMap();
+    return this.getBaseFeaturesByTokenMap();
   }
 
-  getFeatureByName(value: string, enabled = false): FeatureFlag {
-    return this.getBaseFeatureByProp('name', value, enabled);
+  getFeatureByToken(value: string, enabled = false): FeatureFlag {
+    return this.getBaseFeatureByProp('token', value, enabled);
   }
 
   getFeatureBySlug(value: string, enabled = false): FeatureFlag {

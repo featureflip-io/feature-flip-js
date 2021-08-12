@@ -1,6 +1,6 @@
 {
   "name": "@featureflip-io/feature-flip-js",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A client for the featureflip.io written in Typescript",
   "main": "dist/index.js",
   "module": "dist/index.m.js",
@@ -15,7 +15,8 @@
     "dev": "microbundle watch --tsconfig tsconfig.json",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.14.9",
@@ -29,7 +30,8 @@
     "microbundle": "^0.13.0",
     "nock": "^12.0.3",
     "ts-jest": "^27.0.4",
-    "typescript": "^4.3.5"
+    "typescript": "^4.3.5",
+    "semantic-release": "^17.4.4"
   },
   "keywords": [
     "featureflip.io",

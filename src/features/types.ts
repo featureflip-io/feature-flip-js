@@ -1,7 +1,7 @@
 export interface FeatureFlag {
   id: string;
   slug: string;
-  name: string;
+  token: string;
   description: string;
   enabled: boolean;
 }

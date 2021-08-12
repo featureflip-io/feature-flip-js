@@ -4,7 +4,7 @@ const localFeatureList = [
   {
     id: '1',
     slug: 'feature-flip-1',
-    name: 'feature-flip-1',
+    token: 'feature_flip_1',
     description: 'This is my test feature',
     enabled: true,
   },

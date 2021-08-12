@@ -9,11 +9,11 @@ type Config = {
   features: Features;
 };
 
-// a disabled Feature with the name supplied
-const nullFeature = (name: string, enabled = false): FeatureFlag => ({
-  id: name,
-  slug: name,
-  name,
+// a disabled Feature with the token supplied
+const nullFeature = (token: string, enabled = false): FeatureFlag => ({
+  id: token,
+  slug: token,
+  token,
   enabled,
   description: 'This feature is not defined.',
 });
@@ -30,26 +30,26 @@ const reduceFeaturesByProp = <T>(
   }, {} as T);
 
 export abstract class Base {
-  private featuresByName: FeatureMap;
+  private featuresByToken: FeatureMap;
   private featuresBySlug: FeatureIndex;
   private featuresById: FeatureIndex;
 
   constructor(config: Config) {
-    this.featuresByName = config.features
-      ? reduceFeaturesByProp(config.features, 'name')
+    this.featuresByToken = config.features
+      ? reduceFeaturesByProp(config.features, 'token')
       : {};
 
     this.featuresBySlug = config.features
-      ? reduceFeaturesByProp(config.features, 'slug', 'name')
+      ? reduceFeaturesByProp(config.features, 'slug', 'token')
       : {};
 
     this.featuresById = config.features
-      ? reduceFeaturesByProp(config.features, 'id', 'name')
+      ? reduceFeaturesByProp(config.features, 'id', 'token')
       : {};
   }
 
-  protected getBaseFeaturesByNameMap(): FeatureMap {
-    return this.featuresByName;
+  protected getBaseFeaturesByTokenMap(): FeatureMap {
+    return this.featuresByToken;
   }
 
   protected getBaseFeatureByProp(
@@ -57,19 +57,19 @@ export abstract class Base {
     value: string,
     enabled = false
   ): FeatureFlag {
-    const featureNameOrNullFeature = (name: string) =>
-      name ? this.featuresByName[name] : nullFeature(value, enabled);
+    const featureTokenOrNullFeature = (token: string) =>
+      token ? this.featuresByToken[token] : nullFeature(value, enabled);
 
     const featureOrNullFeature = (feature: FeatureFlag) =>
       feature ? feature : nullFeature(value, enabled);
 
     switch (propName) {
-      case 'name':
-        return featureOrNullFeature(this.featuresByName[value]);
+      case 'token':
+        return featureOrNullFeature(this.featuresByToken[value]);
       case 'slug':
-        return featureNameOrNullFeature(this.featuresBySlug[value]);
+        return featureTokenOrNullFeature(this.featuresBySlug[value]);
       case 'id':
-        return featureNameOrNullFeature(this.featuresById[value]);
+        return featureTokenOrNullFeature(this.featuresById[value]);
       default:
         return nullFeature(value, enabled);
     }

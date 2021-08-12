@@ -3,7 +3,7 @@ import FeatureFlip from '..';
 const featureOne = {
   id: '1',
   slug: 'feature-flip-1',
-  name: 'feature-flip',
+  token: 'feature_flip_1',
   description: 'This is my test feature',
   enabled: true,
 };
@@ -16,20 +16,20 @@ describe('Features', () => {
   describe('getFeaturesMap', () => {
     it('should return a map of the features', () => {
       expect(FeatureFlipClient.getFeaturesMap()).toEqual({
-        'feature-flip': featureOne,
+        feature_flip_1: featureOne,
       });
     });
   });
 
-  describe('featureByName', () => {
-    it('should return the feature for a given name', () => {
-      expect(FeatureFlipClient.getFeatureByName('feature-flip')).toEqual(
+  describe('featureByToken', () => {
+    it('should return the feature for a given token', () => {
+      expect(FeatureFlipClient.getFeatureByToken('feature_flip_1')).toEqual(
         featureOne
       );
     });
     it('should return the null feature when not found', () => {
-      const { name, enabled } = FeatureFlipClient.getFeatureByName('invalid');
-      expect(name).toEqual('invalid');
+      const { token, enabled } = FeatureFlipClient.getFeatureByToken('invalid');
+      expect(token).toEqual('invalid');
       expect(enabled).toBeFalsy();
     });
   });
@@ -41,8 +41,8 @@ describe('Features', () => {
       );
     });
     it('should return the null feature when not found', () => {
-      const { name, enabled } = FeatureFlipClient.getFeatureBySlug('invalid');
-      expect(name).toEqual('invalid');
+      const { token, enabled } = FeatureFlipClient.getFeatureBySlug('invalid');
+      expect(token).toEqual('invalid');
       expect(enabled).toBeFalsy();
     });
   });
@@ -53,8 +53,8 @@ describe('Features', () => {
     });
 
     it('should return the null feature when not found', () => {
-      const { name, enabled } = FeatureFlipClient.getFeatureById('invalid');
-      expect(name).toEqual('invalid');
+      const { token, enabled } = FeatureFlipClient.getFeatureById('invalid');
+      expect(token).toEqual('invalid');
       expect(enabled).toBeFalsy();
     });
   });
